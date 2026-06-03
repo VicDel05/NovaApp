@@ -1,75 +1,70 @@
-# React + TypeScript + Vite
+# NovaApp Landing Page Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una demostración base (template) para una landing page moderna, minimalista y responsiva. Su propósito es servir como un punto de partida rápido para ofrecer productos o servicios digitales, capturar leads y mostrar características clave.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Diseño Mobile-First:** Completamente adaptable a cualquier tamaño de pantalla, desde teléfonos móviles hasta monitores ultrawide.
+- **Paleta de Colores Armónica:** Utiliza una combinación de tres colores (`Deep Navy`, `Off-White`, y `Soft Coral`) para transmitir confianza, limpieza y llamados a la acción claros.
+- **Componentes Modulares:** Secciones divididas en componentes lógicos y reutilizables.
+- **Sin Dependencias Pesadas de UI:** Estilos escritos en CSS puro (Vanilla CSS) utilizando variables CSS, Flexbox y CSS Grid.
 
-## React Compiler
+## 🛠️ Tecnologías Usadas
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **[React](https://react.dev/)**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **[Vite](https://vitejs.dev/)**: Herramienta de construcción súper rápida y servidor de desarrollo.
+- **[TypeScript](https://www.typescriptlang.org/)**: Tipado estático para un código más robusto y seguro.
+- **[Lucide React](https://lucide.dev/)**: Biblioteca de iconos SVG hermosos y consistentes.
+- **Vanilla CSS**: Hojas de estilo puras y módulos por componente.
 
-Note: This will impact Vite dev & build performances.
+## 📁 Estructura del Proyecto
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── assets/          # Imágenes y recursos estáticos
+├── components/      # Componentes de la interfaz de usuario
+│   ├── Header       # Navegación y logo
+│   ├── Hero         # Sección principal con CTA
+│   ├── Features     # Grid de características destacadas
+│   ├── Testimonials # Prueba social y opiniones
+│   ├── CTA          # Llamado a la acción final / Formulario
+│   └── Footer       # Enlaces, redes sociales y legal
+├── App.tsx          # Contenedor principal que ensambla las secciones
+├── index.css        # Estilos globales y variables de color
+└── main.tsx         # Punto de entrada de la aplicación React
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 Cómo ejecutar en entorno local
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerrequisitos
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (preferiblemente versión 18 o superior) y el gestor de paquetes **pnpm**. Si no tienes pnpm, puedes instalarlo globalmente usando:
+```bash
+npm install -g pnpm
 ```
+
+### Instrucciones
+
+1. **Clonar o descargar el repositorio**
+2. **Navegar al directorio del proyecto:**
+   ```bash
+   cd demoLanding
+   ```
+3. **Instalar las dependencias:**
+   ```bash
+   pnpm install
+   ```
+4. **Iniciar el servidor de desarrollo:**
+   ```bash
+   pnpm run dev
+   ```
+5. **Ver la aplicación:**
+   Abre tu navegador y visita `http://localhost:5173` (o el puerto que te indique la terminal).
+
+## 📦 Construcción para Producción
+
+Para compilar la aplicación para producción, ejecuta:
+```bash
+pnpm run build
+```
+Los archivos optimizados se generarán en la carpeta `dist/`.
