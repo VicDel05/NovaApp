@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-brand">
-            <a href="/" className="footer-logo">Nova<span className="logo-accent">App</span></a>
+            <Link to="/" className="footer-logo">Nova<span className="logo-accent">App</span></Link>
             <p>Simplificando el trabajo para equipos modernos en todo el mundo.</p>
             <div className="social-links">
               <a href="#" aria-label="Twitter">X</a>
@@ -21,27 +22,27 @@ export function Footer() {
             <div className="footer-links-column">
               <h4>Producto</h4>
               <ul>
-                <li><a href="#">Características</a></li>
-                <li><a href="#">Integraciones</a></li>
-                <li><a href="#">Precios</a></li>
-                <li><a href="#">Changelog</a></li>
+                <li><Link to="/#features">Características</Link></li>
+                <li><Link to="/integrations">Integraciones</Link></li>
+                <li><Link to="/pricing">Precios</Link></li>
+                <li><Link to="/changelog">Changelog</Link></li>
               </ul>
             </div>
             <div className="footer-links-column">
               <h4>Compañía</h4>
               <ul>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Carreras</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><Link to="/about">Sobre Nosotros</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
+                <li><Link to="/careers">Carreras</Link></li>
+                <li><Link to="/#contact">Contacto</Link></li>
               </ul>
             </div>
             <div className="footer-links-column">
               <h4>Legal</h4>
               <ul>
-                <li><a href="#">Privacidad</a></li>
-                <li><a href="#">Términos</a></li>
-                <li><a href="#">Seguridad</a></li>
+                <li><Link to="/privacy">Privacidad</Link></li>
+                <li><Link to="/terms">Términos</Link></li>
+                <li><Link to="/security">Seguridad</Link></li>
               </ul>
             </div>
           </div>

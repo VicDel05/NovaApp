@@ -1,19 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Header.css';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Scroll to hash when location changes
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <a href="/">Nova<span className="logo-accent">App</span></a>
+          <Link to="/">Nova<span className="logo-accent">App</span></Link>
         </div>
         
         {/* Mobile Menu Button */}
@@ -24,11 +39,15 @@ export function Header() {
         {/* Navigation Links */}
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
-            <li><a href="#features" onClick={() => setIsMenuOpen(false)}>Características</a></li>
-            <li><a href="#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonios</a></li>
-            <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contacto</a></li>
+            <li><Link to="/#features" onClick={() => setIsMenuOpen(false)}>Características</Link></li>
+            <li><Link to="/integrations" onClick={() => setIsMenuOpen(false)}>Integraciones</Link></li>
+            <li><Link to="/pricing" onClick={() => setIsMenuOpen(false)}>Precios</Link></li>
+            <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>Sobre Nosotros</Link></li>
+            <li><Link to="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link></li>
+            <li><Link to="/#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonios</Link></li>
+            <li><Link to="/#contact" onClick={() => setIsMenuOpen(false)}>Contacto</Link></li>
           </ul>
-          <button className="btn-primary nav-cta">Empezar</button>
+          <Link to="/#contact" onClick={() => setIsMenuOpen(false)} className="btn-primary nav-cta" style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>Empezar</Link>
         </nav>
       </div>
     </header>

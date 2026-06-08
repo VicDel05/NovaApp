@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import './Hero.css';
 
@@ -12,12 +13,12 @@ export function Hero() {
             Diseñada para equipos modernos que buscan rapidez y claridad en su día a día.
           </p>
           <div className="hero-actions">
-            <button className="btn-primary btn-large">
+            <Link to="/#contact" className="btn-primary btn-large" style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center'}}>
               Comenzar gratis <ArrowRight size={20} className="icon-right" />
-            </button>
-            <button className="btn-secondary btn-large">
+            </Link>
+            <Link to="/#features" className="btn-secondary btn-large" style={{textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'}}>
               Ver demostración
-            </button>
+            </Link>
           </div>
         </div>
         <div className="hero-visual">
